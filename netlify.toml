@@ -1,0 +1,9 @@
+[build]
+  base = ""
+  functions = "netlify/functions"
+  publish = "backend/build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
