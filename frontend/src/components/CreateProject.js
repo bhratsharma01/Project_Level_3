@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles.css';
 
-function CreateProject() {
+function CreateProject({ apiBaseUrl }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [deadline, setDeadline] = useState('');
@@ -15,7 +15,7 @@ function CreateProject() {
     };
 
     const handleSubmit = async () => {
-        await axios.post('http://localhost:5000/api/projects', { title, description, deadline, tasks });
+        await axios.post(`${apiBaseUrl}/api/projects`, { title, description, deadline, tasks });
         alert('Project created successfully!');
     };
 
