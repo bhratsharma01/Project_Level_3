@@ -1,6 +1,6 @@
 [build]
   base = "frontend"
-  publish = "backend/build"
+  publish = "../backend/build"
   command = "rm -rf node_modules && npm install && npm run build"
 
 [[redirects]]
