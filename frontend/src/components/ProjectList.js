@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles.css';
 
-function ProjectList() {
+function ProjectList({ apiBaseUrl }) {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         async function fetchProjects() {
-            const response = await axios.get('http://localhost:5000/api/projects');
+            const response = await axios.get(`${apiBaseUrl}/api/projects`);
             setProjects(response.data);
         }
         fetchProjects();
-    }, []);
+    }, [apiBaseUrl]);
 
     return (
         <div className="container">
