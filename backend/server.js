@@ -10,9 +10,14 @@ app.use(cors());
 
 // Connect to MongoDB
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/projectManagement';
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+mongoose.connect(mongoURI);
+
+mongoose.connection.on('connected', () => {
+    console.log('Connected to MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('Error connecting to MongoDB:', err.message);
 });
 
 // Define a schema
